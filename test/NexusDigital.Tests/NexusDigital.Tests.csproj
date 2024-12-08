@@ -11,6 +11,9 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\src\NexusDigital.Application\NexusDigital.Application.csproj" />
     <ProjectReference Include="..\..\src\NexusDigital.EntityFrameworkCore\NexusDigital.EntityFrameworkCore.csproj" />
   </ItemGroup>

@@ -93,9 +93,20 @@
                   "with": "src/environments/environment.hmr.ts"
                 }
               ]
+            },
+            "Localhost": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.localhost.ts"
+                },
+                {
+                  "replace": "src/assets/appconfig.json",
+                  "with": "src/assets/appconfig.localhost.json"
+                }
+              ]
             }
-          },
-          "defaultConfiguration": ""
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

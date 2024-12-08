@@ -254,3 +254,7 @@ paket-files/
 src/NexusDigital.Web.Mvc/secrets.json
 src/NexusDigital.Web.Host/secrets.json
 src/NexusDigital.Migrator/secrets.json
+/src/NexusDigital.Web.Host/App_Data/Logs
+src/NexusDigital.Web.Host/src/assets/appconfig.localhost.json
+src/NexusDigital.Web.Host/src/environments/environment.localhost.ts
+/src/NexusDigital.Web.Host/.vscode

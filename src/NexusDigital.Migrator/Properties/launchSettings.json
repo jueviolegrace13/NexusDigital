@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NexusDigital.Migrator": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Localhost"
+      }
+    }
+  }
+}
