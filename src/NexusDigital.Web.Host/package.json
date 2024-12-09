@@ -9,7 +9,7 @@
     "hmr": "ng serve --host 0.0.0.0 --port 4200 --hmr",
     "lint": "tslint --force --project src/tsconfig.json src/**/*.ts -t verbose",
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --port 4200",
+    "start": "ng serve --configuration=localhost --host 0.0.0.0 --port 4200",
     "test": "ng test"
   },
   "dependencies": {
@@ -34,7 +34,7 @@
     "moment-timezone": "0.5.45",
     "ngx-bootstrap": "^18.0.2",
     "ngx-pagination": "^6.0.3",
-    "primeng": "^18.0.0",
+    "primeng": "^17.18.11",
     "push.js": "1.0.12",
     "rtl-detect": "^1.1.2",
     "rxjs": "^7.8.1",

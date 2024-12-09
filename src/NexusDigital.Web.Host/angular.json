@@ -94,7 +94,7 @@
                 }
               ]
             },
-            "Localhost": {
+            "localhost": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -119,6 +119,9 @@
             },
             "hmr": {
               "buildTarget": "NexusDigital:build:hmr"
+            },
+            "localhost": {
+              "buildTarget": "NexusDigital:build:localhost"
             }
           }
         },
