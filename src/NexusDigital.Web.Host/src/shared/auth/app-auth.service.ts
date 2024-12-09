@@ -21,7 +21,7 @@ export class AppAuthService {
         private _router: Router,
         private _utilsService: UtilsService,
         private _tokenService: TokenService,
-        private _logService: LogService
+        private _logService: LogService,
     ) {
         this.clear();
     }
@@ -29,7 +29,7 @@ export class AppAuthService {
     logout(reload?: boolean): void {
         abp.auth.clearToken();
         abp.utils.deleteCookie(AppConsts.authorization.encryptedAuthTokenName);
-        
+
         if (reload !== false) {
             location.href = AppConsts.appBaseUrl;
         }
@@ -43,7 +43,7 @@ export class AppAuthService {
             .pipe(
                 finalize(() => {
                     finallyCallback();
-                })
+                }),
             )
             .subscribe((result: AuthenticateResultModel) => {
                 this.processAuthenticateResult(result);
@@ -51,7 +51,7 @@ export class AppAuthService {
     }
 
     private processAuthenticateResult(
-        authenticateResult: AuthenticateResultModel
+        authenticateResult: AuthenticateResultModel,
     ) {
         this.authenticateResult = authenticateResult;
 
@@ -61,7 +61,7 @@ export class AppAuthService {
                 authenticateResult.accessToken,
                 authenticateResult.encryptedAccessToken,
                 authenticateResult.expireInSeconds,
-                this.rememberMe
+                this.rememberMe,
             );
         } else {
             // Unexpected result!
@@ -75,7 +75,7 @@ export class AppAuthService {
         accessToken: string,
         encryptedAccessToken: string,
         expireInSeconds: number,
-        rememberMe?: boolean
+        rememberMe?: boolean,
     ): void {
         const tokenExpireDate = rememberMe
             ? new Date(new Date().getTime() + 1000 * expireInSeconds)
@@ -87,7 +87,7 @@ export class AppAuthService {
             AppConsts.authorization.encryptedAuthTokenName,
             encryptedAccessToken,
             tokenExpireDate,
-            abp.appPath
+            abp.appPath,
         );
 
         let initialUrl = UrlHelper.initialUrl;

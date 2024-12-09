@@ -7,7 +7,7 @@ import { LayoutConfig } from './layout-config';
 export class LayoutStoreService {
   public readonly config$: Observable<LayoutConfig>;
   private readonly initialLayoutConfig: LayoutConfig = {
-    sidebarExpanded: false
+    sidebarExpanded: false,
   };
   private configSource: BehaviorSubject<LayoutConfig>;
 
@@ -19,13 +19,13 @@ export class LayoutStoreService {
   get sidebarExpanded(): Observable<boolean> {
     return this.config$.pipe(
       pluck('sidebarExpanded'),
-      distinctUntilChanged()
+      distinctUntilChanged(),
     ) as Observable<boolean>;
   }
 
   public setSidebarExpanded(value: boolean): void {
     this.configSource.next(
-      Object.assign(this.configSource.value, { sidebarExpanded: value })
+      Object.assign(this.configSource.value, { sidebarExpanded: value }),
     );
   }
 }

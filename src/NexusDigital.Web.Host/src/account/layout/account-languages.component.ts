@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   Injector,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
 import { filter as _filter } from 'lodash-es';
@@ -10,7 +10,7 @@ import { filter as _filter } from 'lodash-es';
 @Component({
   selector: 'account-languages',
   templateUrl: './account-languages.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountLanguagesComponent extends AppComponentBase
   implements OnInit {
@@ -24,7 +24,7 @@ export class AccountLanguagesComponent extends AppComponentBase
   ngOnInit() {
     this.languages = _filter(
       this.localization.languages,
-      (l) => !l.isDisabled
+      (l) => !l.isDisabled,
     );
     this.currentLanguage = this.localization.currentLanguage;
   }
@@ -34,7 +34,7 @@ export class AccountLanguagesComponent extends AppComponentBase
       'Abp.Localization.CultureName',
       languageName,
       new Date(new Date().getTime() + 5 * 365 * 86400000), // 5 year
-      abp.appPath
+      abp.appPath,
     );
 
     location.reload();

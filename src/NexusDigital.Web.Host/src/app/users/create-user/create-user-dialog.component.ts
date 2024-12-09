@@ -4,7 +4,7 @@ import {
   OnInit,
   EventEmitter,
   Output,
-  ChangeDetectorRef
+  ChangeDetectorRef,
 } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { forEach as _forEach, map as _map } from 'lodash-es';
@@ -12,12 +12,12 @@ import { AppComponentBase } from '@shared/app-component-base';
 import {
   UserServiceProxy,
   CreateUserDto,
-  RoleDto
+  RoleDto,
 } from '@shared/service-proxies/service-proxies';
 import { AbpValidationError } from '@shared/components/validation/abp-validation.api';
 
 @Component({
-  templateUrl: './create-user-dialog.component.html'
+  templateUrl: './create-user-dialog.component.html',
 })
 export class CreateUserDialogComponent extends AppComponentBase
   implements OnInit {
@@ -46,7 +46,7 @@ export class CreateUserDialogComponent extends AppComponentBase
     injector: Injector,
     public _userService: UserServiceProxy,
     public bsModalRef: BsModalRef,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {
     super(injector);
   }
@@ -64,7 +64,7 @@ export class CreateUserDialogComponent extends AppComponentBase
   setInitialRolesStatus(): void {
     _map(this.roles, (item) => {
       this.checkedRolesMap[item.normalizedName] = this.isRoleChecked(
-        item.normalizedName
+        item.normalizedName,
       );
     });
   }
@@ -102,7 +102,7 @@ export class CreateUserDialogComponent extends AppComponentBase
       },
       () => {
         this.saving = false;
-      }
+      },
     );
   }
 }

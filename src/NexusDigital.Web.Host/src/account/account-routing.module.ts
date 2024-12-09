@@ -12,13 +12,13 @@ import { AccountComponent } from './account.component';
                 component: AccountComponent,
                 children: [
                     { path: 'login', component: LoginComponent },
-                    { path: 'register', component: RegisterComponent }
-                ]
-            }
-        ])
+                    { path: 'register', component: RegisterComponent },
+                ],
+            },
+        ]),
     ],
     exports: [
-        RouterModule
-    ]
+        RouterModule,
+    ],
 })
 export class AccountRoutingModule { }

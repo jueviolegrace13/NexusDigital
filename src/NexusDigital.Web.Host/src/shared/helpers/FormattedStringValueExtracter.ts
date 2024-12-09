@@ -25,7 +25,7 @@ class FormatStringToken {
 }
 
 class FormatStringTokenizer {
-    Tokenize(format: string, includeBracketsForDynamicValues: boolean = false): FormatStringToken[] {
+    Tokenize(format: string, includeBracketsForDynamicValues = false): FormatStringToken[] {
         const tokens: FormatStringToken[] = [];
 
         let currentText = '';
@@ -39,7 +39,7 @@ class FormatStringTokenizer {
                         throw new Error(
                             'Incorrect syntax at char ' +
                             i +
-                            '! format string can not contain nested dynamic value expression!'
+                            '! format string can not contain nested dynamic value expression!',
                         );
                     }
 
@@ -56,7 +56,7 @@ class FormatStringTokenizer {
                         throw new Error(
                             'Incorrect syntax at char ' +
                             i +
-                            '! These is no opening brackets for the closing bracket }.'
+                            '! These is no opening brackets for the closing bracket }.',
                         );
                     }
 

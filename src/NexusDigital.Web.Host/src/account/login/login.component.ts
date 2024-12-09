@@ -6,7 +6,7 @@ import { AppAuthService } from '@shared/auth/app-auth.service';
 
 @Component({
   templateUrl: './login.component.html',
-  animations: [accountModuleAnimation()]
+  animations: [accountModuleAnimation()],
 })
 export class LoginComponent extends AppComponentBase {
   submitting = false;
@@ -14,7 +14,7 @@ export class LoginComponent extends AppComponentBase {
   constructor(
     injector: Injector,
     public authService: AppAuthService,
-    private _sessionService: AbpSessionService
+    private _sessionService: AbpSessionService,
   ) {
     super(injector);
   }

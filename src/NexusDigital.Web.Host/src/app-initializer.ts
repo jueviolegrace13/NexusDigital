@@ -17,7 +17,7 @@ export class AppInitializer {
   constructor(
     private _injector: Injector,
     private _platformLocation: PlatformLocation,
-    private _httpClient: HttpClient
+    private _httpClient: HttpClient,
   ) { }
 
   init(): () => Promise<boolean> {
@@ -36,14 +36,14 @@ export class AppInitializer {
                 abp.ui.clearBusy();
                 if (this.shouldLoadLocale()) {
                   const angularLocale = this.convertAbpLocaleToAngularLocale(
-                    abp.localization.currentLanguage.name
+                    abp.localization.currentLanguage.name,
                   );
                   import(`/node_modules/@angular/common/locales/${angularLocale}.mjs`).then(
                     (module) => {
                       registerLocaleData(module.default);
                       resolve(result);
                     },
-                    reject
+                    reject,
                   );
                 } else {
                   resolve(result);
@@ -52,7 +52,7 @@ export class AppInitializer {
               (err) => {
                 abp.ui.clearBusy();
                 reject(err);
-              }
+              },
             );
           });
         });
@@ -101,7 +101,7 @@ export class AppInitializer {
   }
 
   private getCurrentClockProvider(
-    currentProviderName: string
+    currentProviderName: string,
   ): abp.timing.IClockProvider {
     if (currentProviderName === 'unspecifiedClockProvider') {
       return abp.timing.unspecifiedClockProvider;
@@ -116,7 +116,7 @@ export class AppInitializer {
 
   private getUserConfiguration(callback: () => void): void {
     const cookieLangValue = abp.utils.getCookieValue(
-      'Abp.Localization.CultureName'
+      'Abp.Localization.CultureName',
     );
     const token = abp.auth.getToken();
 
@@ -134,7 +134,7 @@ export class AppInitializer {
         `${AppConsts.remoteServiceBaseUrl}/AbpUserConfiguration/GetAll`,
         {
           headers: requestHeaders,
-        }
+        },
       )
       .subscribe((response) => {
         const result = response.result;
@@ -142,7 +142,7 @@ export class AppInitializer {
         _merge(abp, result);
 
         abp.clock.provider = this.getCurrentClockProvider(
-          result.clock.provider
+          result.clock.provider,
         );
 
         moment.locale(abp.localization.currentLanguage.name);
@@ -168,7 +168,7 @@ export class AppInitializer {
         AppConsts.localeMappings = response.localeMappings;
 
         // Find tenant from subdomain
-        var tenancyName = this.resolveTenancyName(response.appBaseUrl);
+        const tenancyName = this.resolveTenancyName(response.appBaseUrl);
 
         if (tenancyName == null) {
           callback();
@@ -179,8 +179,8 @@ export class AppInitializer {
   }
 
   private ConfigureTenantIdCookie(tenancyName: string, callback: () => void) {
-    let accountServiceProxy: AccountServiceProxy = this._injector.get(AccountServiceProxy);
-    let input = new IsTenantAvailableInput();
+    const accountServiceProxy: AccountServiceProxy = this._injector.get(AccountServiceProxy);
+    const input = new IsTenantAvailableInput();
     input.tenancyName = tenancyName;
 
     accountServiceProxy.isTenantAvailable(input).subscribe((result: IsTenantAvailableOutput) => {
@@ -193,14 +193,14 @@ export class AppInitializer {
   }
 
   private resolveTenancyName(appBaseUrl): string | null {
-    var subdomainTenantResolver = new SubdomainTenantResolver();
-    var tenancyName = subdomainTenantResolver.resolve(appBaseUrl);
+    const subdomainTenantResolver = new SubdomainTenantResolver();
+    let tenancyName = subdomainTenantResolver.resolve(appBaseUrl);
     if (tenancyName) {
       return tenancyName;
     }
 
-    var queryStirngTenantResolver = new QueryStringTenantResolver();
-    var tenancyName = queryStirngTenantResolver.resolve(appBaseUrl);
+    const queryStirngTenantResolver = new QueryStringTenantResolver();
+    tenancyName = queryStirngTenantResolver.resolve(appBaseUrl);
     if (tenancyName) {
       return tenancyName;
     }

@@ -15,11 +15,11 @@ import {
   RoleDto,
   PermissionDto,
   RoleEditDto,
-  FlatPermissionDto
+  FlatPermissionDto,
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
-  templateUrl: 'edit-role-dialog.component.html'
+  templateUrl: 'edit-role-dialog.component.html',
 })
 export class EditRoleDialogComponent extends AppComponentBase
   implements OnInit {
@@ -36,7 +36,7 @@ export class EditRoleDialogComponent extends AppComponentBase
     injector: Injector,
     private _roleService: RoleServiceProxy,
     public bsModalRef: BsModalRef,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {
     super(injector);
   }
@@ -56,7 +56,7 @@ export class EditRoleDialogComponent extends AppComponentBase
   setInitialPermissionsStatus(): void {
     _map(this.permissions, (item) => {
       this.checkedPermissionsMap[item.name] = this.isPermissionChecked(
-        item.name
+        item.name,
       );
     });
   }
@@ -94,7 +94,7 @@ export class EditRoleDialogComponent extends AppComponentBase
       },
       () => {
         this.saving = false;
-      }
+      },
     );
   }
 }

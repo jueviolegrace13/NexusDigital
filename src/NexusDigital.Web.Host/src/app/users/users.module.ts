@@ -9,7 +9,17 @@ import { UsersComponent } from './users.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    declarations: [UsersComponent, ResetPasswordDialogComponent, EditUserDialogComponent, CreateUserDialogComponent, ChangePasswordComponent],
-    imports: [SharedModule, UsersRoutingModule, CommonModule],
+    declarations: [
+        UsersComponent,
+        ResetPasswordDialogComponent,
+        EditUserDialogComponent,
+        CreateUserDialogComponent,
+        ChangePasswordComponent,
+    ],
+    imports: [
+        SharedModule,
+        UsersRoutingModule,
+        CommonModule,
+    ],
 })
-export class UsersModule {}
+export class UsersModule { }

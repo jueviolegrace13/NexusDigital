@@ -40,7 +40,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
         TableModule,
         PaginatorModule,
         ProgressBarModule,
-        AutoCompleteModule
+        AutoCompleteModule,
     ],
     declarations: [
         AbpPaginationControlsComponent,
@@ -49,7 +49,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
         AbpModalFooterComponent,
         LocalizePipe,
         BusyDirective,
-        EqualValidator
+        EqualValidator,
     ],
     exports: [
         AbpPaginationControlsComponent,
@@ -66,8 +66,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
         CollapseModule,
         TabsModule,
         TableModule,
-        PaginatorModule
-    ]
+        PaginatorModule,
+    ],
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders<SharedModule> {
@@ -78,8 +78,8 @@ export class SharedModule {
                 AppUrlService,
                 AppAuthService,
                 AppRouteGuard,
-                LayoutStoreService
-            ]
+                LayoutStoreService,
+            ],
         };
     }
 }

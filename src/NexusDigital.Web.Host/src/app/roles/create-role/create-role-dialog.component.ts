@@ -13,12 +13,12 @@ import {
   RoleDto,
   PermissionDto,
   CreateRoleDto,
-  PermissionDtoListResultDto
+  PermissionDtoListResultDto,
 } from '@shared/service-proxies/service-proxies';
 import { forEach as _forEach, map as _map } from 'lodash-es';
 
 @Component({
-  templateUrl: 'create-role-dialog.component.html'
+  templateUrl: 'create-role-dialog.component.html',
 })
 export class CreateRoleDialogComponent extends AppComponentBase
   implements OnInit {
@@ -28,13 +28,13 @@ export class CreateRoleDialogComponent extends AppComponentBase
   checkedPermissionsMap: { [key: string]: boolean } = {};
   defaultPermissionCheckedStatus = true;
 
-  onSave = output<EventEmitter<any>>()
+  onSave = output<EventEmitter<any>>();
 
   constructor(
     injector: Injector,
     private _roleService: RoleServiceProxy,
     public bsModalRef: BsModalRef,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {
     super(injector);
   }
@@ -52,7 +52,7 @@ export class CreateRoleDialogComponent extends AppComponentBase
   setInitialPermissionsStatus(): void {
     _map(this.permissions, (item) => {
       this.checkedPermissionsMap[item.name] = this.isPermissionChecked(
-        item.name
+        item.name,
       );
     });
   }
@@ -95,7 +95,7 @@ export class CreateRoleDialogComponent extends AppComponentBase
         () => {
           this.saving = false;
           this.cd.detectChanges();
-        }
+        },
       );
   }
 }

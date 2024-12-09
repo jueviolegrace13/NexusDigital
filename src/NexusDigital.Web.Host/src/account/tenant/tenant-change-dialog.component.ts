@@ -5,11 +5,11 @@ import { AccountServiceProxy } from '@shared/service-proxies/service-proxies';
 import { AppTenantAvailabilityState } from '@shared/AppEnums';
 import {
   IsTenantAvailableInput,
-  IsTenantAvailableOutput
+  IsTenantAvailableOutput,
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
-  templateUrl: './tenant-change-dialog.component.html'
+  templateUrl: './tenant-change-dialog.component.html',
 })
 export class TenantChangeDialogComponent extends AppComponentBase {
   saving = false;
@@ -18,7 +18,7 @@ export class TenantChangeDialogComponent extends AppComponentBase {
   constructor(
     injector: Injector,
     private _accountService: AccountServiceProxy,
-    public bsModalRef: BsModalRef
+    public bsModalRef: BsModalRef,
   ) {
     super(injector);
   }
@@ -47,14 +47,14 @@ export class TenantChangeDialogComponent extends AppComponentBase {
             break;
           case AppTenantAvailabilityState.NotFound:
             this.message.warn(
-              this.l('ThereIsNoTenantDefinedWithName{0}', this.tenancyName)
+              this.l('ThereIsNoTenantDefinedWithName{0}', this.tenancyName),
             );
             break;
         }
       },
       () => {
         this.saving = false;
-      }
+      },
     );
   }
 }

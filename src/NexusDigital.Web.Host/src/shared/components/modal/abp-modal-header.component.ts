@@ -4,14 +4,14 @@ import {
   output,
   EventEmitter,
   ChangeDetectionStrategy,
-  Injector
+  Injector,
 } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
 
 @Component({
   selector: 'abp-modal-header',
   templateUrl: './abp-modal-header.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AbpModalHeaderComponent extends AppComponentBase {
   title = input<string>();

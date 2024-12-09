@@ -35,7 +35,7 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent
+        SidebarMenuComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -50,8 +50,8 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         TabsModule,
         ServiceProxyModule,
         NgxPaginationModule,
-        SharedModule
+        SharedModule,
     ],
-    providers: []
+    providers: [],
 })
 export class AppModule {}

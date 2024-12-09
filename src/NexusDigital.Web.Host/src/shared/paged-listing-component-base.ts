@@ -7,7 +7,7 @@ export class EntityDto {
 }
 
 @Component({
-    template: ''
+    template: '',
 })
 export abstract class PagedListingComponentBase<TEntityDto> extends AppComponentBase {
     public pageSize = 10;
@@ -19,7 +19,7 @@ export abstract class PagedListingComponentBase<TEntityDto> extends AppComponent
 
     constructor(
         injector: Injector,
-        cd: ChangeDetectorRef
+        cd: ChangeDetectorRef,
     ) {
         super(injector);
         this.cd = cd;

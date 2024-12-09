@@ -4,17 +4,17 @@ import {
   OnInit,
   Output,
   EventEmitter,
-  ChangeDetectorRef
+  ChangeDetectorRef,
 } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponentBase } from '@shared/app-component-base';
 import {
   TenantServiceProxy,
-  TenantDto
+  TenantDto,
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
-  templateUrl: 'edit-tenant-dialog.component.html'
+  templateUrl: 'edit-tenant-dialog.component.html',
 })
 export class EditTenantDialogComponent extends AppComponentBase
   implements OnInit {
@@ -28,7 +28,7 @@ export class EditTenantDialogComponent extends AppComponentBase
     injector: Injector,
     public _tenantService: TenantServiceProxy,
     public bsModalRef: BsModalRef,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {
     super(injector);
   }
@@ -51,7 +51,7 @@ export class EditTenantDialogComponent extends AppComponentBase
       },
       () => {
         this.saving = false;
-      }
+      },
     );
   }
 }

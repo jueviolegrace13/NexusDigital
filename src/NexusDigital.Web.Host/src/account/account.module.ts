@@ -27,7 +27,7 @@ import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.compo
         SharedModule,
         ServiceProxyModule,
         AccountRoutingModule,
-        ModalModule.forChild()
+        ModalModule.forChild(),
     ],
     declarations: [
         AccountComponent,
@@ -39,7 +39,7 @@ import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.compo
         // tenant
         TenantChangeComponent,
         TenantChangeDialogComponent,
-    ]
+    ],
 })
 export class AccountModule {
 

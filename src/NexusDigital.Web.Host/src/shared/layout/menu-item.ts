@@ -14,7 +14,7 @@ export class MenuItem {
     route: string,
     icon: string,
     permissionName: string = null,
-    children: MenuItem[] = null
+    children: MenuItem[] = null,
   ) {
     this.label = label;
     this.route = route;

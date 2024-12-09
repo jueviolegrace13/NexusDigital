@@ -8,7 +8,7 @@ export class AppUrlService {
     static tenancyNamePlaceHolder = '{TENANCY_NAME}';
 
     constructor(
-        private readonly _appSessionService: AppSessionService
+        private readonly _appSessionService: AppSessionService,
     ) {
 
     }
